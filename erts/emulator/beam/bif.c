@@ -2940,7 +2940,7 @@ BIF_RETTYPE tuple_size_1(BIF_ALIST_1)
 
 /**********************************************************************/
 
-/* set the n'th element in a tuple  设置 一个元组的第几位*/
+/* set the n'th element in a tuple  设置 一个元组的第几位  */
 
 BIF_RETTYPE setelement_3(BIF_ALIST_3)
 {
