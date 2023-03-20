@@ -2940,7 +2940,7 @@ BIF_RETTYPE tuple_size_1(BIF_ALIST_1)
 
 /**********************************************************************/
 
-/* set the n'th element in a tuple  设置 一个元组的第几位 test    */
+/* set the n'th element in a tuple  设置 一个元组的第几位 te   */
 
 BIF_RETTYPE setelement_3(BIF_ALIST_3)
 {
@@ -2963,7 +2963,7 @@ BIF_RETTYPE setelement_3(BIF_ALIST_3)
 
     hp = HAlloc(BIF_P, size);
 
-    /* copy the tuple */
+    /* copy the    tuple */
     resp = hp;
     sys_memcpy(hp, ptr, sizeof(Eterm)*size);
     resp[ix] = BIF_ARG_3;
