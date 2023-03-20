@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE chapter SYSTEM "chapter.dtd">
+
+<chapter>
+  <header>
+    <copyright>
+      <year>2021</year><year>2022</year>
+      <holder>Ericsson AB. All Rights Reserved.</holder>
+    </copyright>
+    <legalnotice>
+      Licensed under the Apache License, Version 2.0 (the "License");
+      you may not use this file except in compliance with the License.
+      You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+
+    </legalnotice>
+
+    <title>Upcoming Potential Incompatibilities</title>
+    <prepared></prepared>
+    <docno></docno>
+    <date></date>
+    <rev></rev>
+    <file>upcoming_incompatibilities.xml</file>
+  </header>
+  <section>
+    <title>Introduction</title>
+    <p>This document lists planned upcoming potential incompatibilities in
+    Erlang/OTP.</p>
+  </section>
+
+  <section>
+    <title>OTP 27</title>
+
+    <section>
+      <marker id="fun_creator_pid"/>
+      <title>Fun creator pid will always be local init process</title>
+      <p>
+        As of OTP 27, the functions
+        <seemfa marker="erts:erlang#fun_info/1">
+        <c>erlang:fun_info/1,2</c></seemfa> will always say that the local
+        <c>init</c> process created all funs, regardless of which process or
+        node the fun was originally created on.
+      </p>
+      <p>
+        In OTP 28, the <c>{pid,_}</c>element will be removed altogether.</p>
+    </section>
+
+    <section>
+      <title>Feature maybe_expr will be enabled by default</title>
+      <p>
+	As of OTP 27, the <c>maybe_expr</c> feature will be approved
+	and enabled by default. That means that code that uses the
+	unquoted atom <c>maybe</c> will fail to compile. All uses of
+	<c>maybe</c> as an atom will need to be quoted. Alternatively, as a
+	short-term solution, the <c>maybe_expr</c> feature can be
+	disabled.
+      </p>
+      <p>
+        It is recommend to quote all uses of the atom <c>maybe</c> as soon as
+        possible. The compiler option <c>warn_keywords</c> can be used to emit
+        warnings about all occurrences of <c>maybe</c> without quotes.
+      </p>
+    </section>
+  </section>
+
+  <section>
+    <title>OTP 28</title>
+
+    <section>
+      <marker id="fun_creator_pid"/>
+      <title>Fun creator pid will be removed</title>
+      <p>
+        As of OTP 28, the function <seemfa
+        marker="erts:erlang#fun_info/1"><c>erlang:fun_info/1</c></seemfa>
+        will not include the <c>{pid,_}</c> element and the function
+        <seemfa marker="erts:erlang#fun_info/2"><c>erlang:fun_info/2</c></seemfa>
+        will no longer accept <c>pid</c> as the second argument.</p>
+    </section>
+  </section>
+
+  <section>
+    <title>OTP 29</title>
+
+    <section>
+      <title>It will no longer be possible to disable feature maybe_expr</title>
+      <p>
+	As of OTP 29, the <c>maybe_expr</c> feature will become
+	permanent and no longer possible to disable. All uses of
+	<c>maybe</c> as an atom will need to be	quoted.
+      </p>
+      <p>
+        It is recommend to quote all uses of the atom <c>maybe</c> as soon as
+        possible. The compiler option <c>warn_keywords</c> can be used to emit
+        warnings about all occurrences of <c>maybe</c> without quotes.
+      </p>
+    </section>
+  </section>
+
+</chapter>
