@@ -2944,6 +2944,7 @@ BIF_RETTYPE tuple_size_1(BIF_ALIST_1)
 
 BIF_RETTYPE setelement_3(BIF_ALIST_3)
 {
+    erts_printf("++++++++++++++++++++++++++++++++++");
     Eterm* ptr;
     Eterm* hp;
     Eterm* resp;
@@ -2960,7 +2961,9 @@ BIF_RETTYPE setelement_3(BIF_ALIST_3)
     if ((ix < 1) || (ix >= size)) {
 	goto error;
     }
-
+    // erts_printf("%s\n", BIF_ARG_1);
+    // erts_printf("%s\n", BIF_ARG_2);
+    erts_printf("%d\n", size);
     hp = HAlloc(BIF_P, size);
 
     /* copy the    tuple */
