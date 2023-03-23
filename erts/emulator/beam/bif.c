@@ -2920,6 +2920,7 @@ BIF_RETTYPE element_2(BIF_ALIST_2)
 	Sint ix = signed_val(BIF_ARG_1);
 
 	if ((ix >= 1) && (ix <= arityval(*tuple_ptr)))
+        erts_printf("++++ %ld\n", tuple_ptr[ix] );
 	    BIF_RET(tuple_ptr[ix]);
     }
     BIF_ERROR(BIF_P, BADARG);
@@ -2944,7 +2945,6 @@ BIF_RETTYPE tuple_size_1(BIF_ALIST_1)
 
 BIF_RETTYPE setelement_3(BIF_ALIST_3)
 {
-    erts_printf("++++++++++++++++++++++++++++++++++");
     Eterm* ptr;
     Eterm* hp;
     Eterm* resp;
@@ -2963,7 +2963,14 @@ BIF_RETTYPE setelement_3(BIF_ALIST_3)
     }
     // erts_printf("%s\n", BIF_ARG_1);
     // erts_printf("%s\n", BIF_ARG_2);
-    erts_printf("%d\n", size);
+    for (size_t i = 0; i < size; i++)
+    {
+         erts_printf("++++ %ld\n", ptr[i] );
+         erts_printf("%d\n", sizeof(ptr[i]));
+        /* code */
+    }
+    
+    erts_printf("size   %d\n", size);
     hp = HAlloc(BIF_P, size);
 
     /* copy the    tuple */

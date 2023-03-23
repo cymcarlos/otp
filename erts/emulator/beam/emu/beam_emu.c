@@ -222,6 +222,7 @@ static void init_emulator_finish(void) ERTS_NOINLINE;
 void
 init_emulator(void)
 {
+    erts_printf("init_emulator+++++++++++++++++++++\n");
     process_main(0);
 }
 

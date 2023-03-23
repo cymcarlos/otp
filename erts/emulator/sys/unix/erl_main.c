@@ -28,12 +28,11 @@ int
 main(int argc, char **argv)
 {
     erts_printf("argc:   %d\n", argc);
-    // erts_printf("argv:   %d", sizeof(argv));
     for(int i = 0; i < sizeof(argv); i++){
         erts_printf("argv[%d]:   %s\n", i, argv[i]);
     }
-    erts_printf("++++++++++++++++++++++++++++\n");
-    erts_print_stack();
+    // erts_printf("++++++++++++++++++++++++++++\n");
+    // erts_print_stack();
     erl_start(argc, argv);
     return 0;
 }

@@ -1169,7 +1169,6 @@ int main(int argc, char **argv)
     else
 #endif
     {
-	erts_printf("cym   erlang start unix \n");
 	erts_printf("cym   erlang start  emu  %s\n", emu);
 	erts_printf("cym   erlang start  Eargsp  %s\n", Eargsp);
 	execv(emu, Eargsp);
